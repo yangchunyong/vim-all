@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/srv/mlearning-lab.com/www/vendor/composer'
+let g:netrw_dirhist_2='/home/pandora/.vim'
+let g:netrw_dirhist_3='/home/pandora/.vim/bundle'
+let g:netrw_dirhist_4='/home/pandora/.vim/bundle/vim-php-cs-fixer'

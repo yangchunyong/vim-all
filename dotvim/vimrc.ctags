@@ -1,0 +1,13 @@
+" service tag set
+"set tags +=~/.ctags/php/www/tags
+" ask tag set
+"set tags +=~/.ctags/php/ask/tags
+" html5plus tag set
+"set tags +=~/.ctags/php/html5plus/tags
+set nu
+" mlearning tag set
+"set tags +=~/.ctags/php/mlearning/tags
+" tag set
+set tags +=~/.ctags/php//tags
+" support tag set
+set tags +=~/.ctags/php/support/tags

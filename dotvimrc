@@ -1,0 +1,14 @@
+"vundle set
+set nocompatible              " be iMproved, required
+filetype off                  " required
+source ~/.vim/vimrc.bundle
+
+set ts=4
+set sw=4
+set sts=4
+syntax on
+set background=dark
+colorscheme solarized
+filetype indent on
+
+source ~/.vim/vimrc.ctags

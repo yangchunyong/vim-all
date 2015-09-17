@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+#projectPath=~/ask
+#project=ask
+
+if [ $# -eq 0 ];then
+	echo 'usage: genctags projectPath or genctags projectPath projectname'
+	exit 0
+fi
+
+projectPath=$1
+if [ $# -eq 1 ];then
+	project=${projectPath##*/}
+else
+	project=$2
+fi
+
+
+if [ -n "${projectPath}" -a -d "${projectPath}" ]; then
+  mkdir -p "${HOME}/.ctags/php/$project"
+  TAG_FILE="${HOME}/.ctags/php/$project/tags"
+  rm -f "${TAG_FILE}"
+  echo "Looking inside: ${projectPath}"
+  ctags --recurse --tag-relative \
+    --languages=-javascript,sql \
+    --exclude=.git \
+    --sort=yes --append \
+    --PHP-kinds=+cf \
+    --regex-PHP='/abstract class ([^ ]*)/\1/c/' \
+    --regex-PHP='/interface ([^ ]*)/\1/c/' \
+    --regex-PHP='/(public |static |abstract |protected |private )+function ([^ (]*)/\2/f/' \
+    -f "${TAG_FILE}" \
+    $projectPath
+  echo
+  echo "-------- generated ctags for: Laravel -------"
+  cat "${TAG_FILE}" | wc
+  echo "---------------------------------------------"
+  echo
+fi
+
+echo '"' $project tag set >>~/.vimrc
+echo set tags +=~/.ctags/php/$project/tags >>~/.vim/vimrc.ctags
