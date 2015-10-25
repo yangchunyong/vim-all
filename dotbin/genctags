@@ -38,5 +38,5 @@ if [ -n "${projectPath}" -a -d "${projectPath}" ]; then
   echo
 fi
 
-echo '"' $project tag set >>~/.vimrc
+echo '"' $project tag set >>~/.vim/vimrc.ctags
 echo set tags +=~/.ctags/php/$project/tags >>~/.vim/vimrc.ctags
